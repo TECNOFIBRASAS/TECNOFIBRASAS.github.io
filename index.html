@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnofibra S.A.S.</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff; /* Fondo blanco */
+            color: #001f3f; /* Azul oscuro */
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: rgb(1, 19, 39); /* Color especificado */
+            padding: 20px;
+            text-align: center;
+        }
+        header img {
+            width: 100%;
+            max-width: 300px; /* Tamaño ajustado */
+            height: auto;
+        }
+        nav {
+            background-color: rgb(29, 176, 9); /* Color especificado */
+            padding: 10px 0;
+        }
+        nav ul {
+           -style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        section#inicio {
+            background-color: #f2f2f2; /* Gris claro */
+        }
+        section#servicios, section#planes, section#contacto, section#soporte {
+            background-color: #e6e6e6; /* Gris más claro */
+            margin: 10px 0;
+        }
+        .services-grid, .plans-grid, .contact-grid, .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: left;
+        }
+        .service-item, .plan-item, .contact-item, .support-item {
+            background-color: rgb(1, 19, 39); /* Azul del banner */
+            color: #ffffff; /* Texto blanco */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background-color: #001f3f; /* Azul oscuro */
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+        }
+        form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        form button {
+            background-color: #39CCCC; /* Verde */
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            if (element.classList.contains('hidden')) {
+                element.classList.remove('hidden');
+            } else {
+                element.classList.add('hidden');
+            }
+        }
+
+        function closeAllSections() {
+            var sections = document.querySelectorAll('.services-grid, .plans-grid, .contact-grid, .support-grid');
+            sections.forEach(function(section) {
+                section.classList.add('hidden');
+            });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo de Tecnofibra S.A.S.">
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#inicio" onclick="closeAllSections()">Inicio</a></li>
+            <li><a href="#servicios" onclick="toggleVisibility('servicios-info')">Servicios</a></li>
+            <li><a href="#planes" onclick="toggleVisibility('planes-info')">Planes y Precios</a></li>
+            <li><a href="#contacto" onclick="toggleVisibility('contacto-info')">Contacto</a></li>
+            <li><a href="#soporte" onclick="toggleVisibility('soporte-info')">Soporte</a></li>
+        </ul>
+    </nav>
+
+    <section id="servicios">
+        <h2>Nuestros Servicios</h2>
+        <div id="servicios-info" class="hidden services-grid">
+            <div class="service-item">
+                <h3>📡 Internet de Alta Velocidad</h3>
+                <p>Disfruta de una conexión rápida y confiable para trabajar, estudiar, jugar en línea o ver tus contenidos favoritos sin interrupciones. Tenemos planes diseñados para cada necesidad y presupuesto.</p>
+            </div>
+            <div class="service-item">
+                <h3>📺 Televisión Digital HD</h3>
+                <p>Accede a una programación variada con canales nacionales e internacionales en alta definición, incluyendo deportes, entretenimiento, películas y más.</p>
+            </div>
+            <div class="service-item">
+                <h3>📞 Atención Personalizada</h3>
+                <p>Nos enfocamos en brindarte el mejor servicio y soporte técnico. Si tienes dudas o necesitas asistencia, nuestro equipo está listo para ayudarte en horarios de oficina.</p>
+            </div>
+            <div class="service-item">
+                <h3>💡 Compromiso con la Calidad</h3>
+                <p>Implementamos tecnología avanzada para ofrecerte la mejor experiencia de conectividad.</p>
+            </div>
+            <div class="service-item">
+                <h3>🌟 Planes Flexibles</h3>
+                <p>Elige el paquete que mejor se adapte a ti, con opciones de solo Internet o Internet + TV.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="planes">
+        <h2>Planes y Precios</h2>
+        <div id="planes-info" class="hidden plans-grid">
+            <div class="plan-item">
+                <h3>Solo Internet:</h3>
+                <style>
+                    .planes-container {
+                        width: 100%;
+                        max-width: 400px;
+                    }
+                
+                    .planes-container ul {
+                        list-style-type: none;
+                        padding: 0;
+                        margin: 0;
+                    }
+                
+                    .planes-container li {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-bottom: 10px;
+                        border-bottom: 1px solid #ddd;
+                        padding-bottom: 5px;
+                    }
+                
+                    .plan-text {
+                        flex-grow: 1;
+                    }
+                
+                    .planes-container button {
+                        background-color: #4ff8e9;
+                        border: none;
+                        padding: 8px 12px;
+                        font-size: 14px;
+                        cursor: pointer;
+                        border-radius: 5px;
+                        color: black;
+                        font-weight: bold;
+                        transition: all 0.3s ease-in-out;
+                        box-shadow: 0 0 5px #4ff8e9;
+                        min-width: 140px; /* Tamaño fijo para alinear */
+                        text-align: center;
+                    }
+                
+                    .planes-container button:hover {
+                        background-color: #3dd6c9;
+                        box-shadow: 0 0 15px #4ff8e9;
+                        transform: scale(1.1);
+                    }
+                
+                    .planes-container button:active {
+                        transform: scale(0.95);
+                    }
+                </style>
+                
+                <div class="planes-container">
+                    <style>
+                        .planes-container {
+                            width: 100%;
+                            max-width: 400px;
+                            margin: 20px auto;
+                        }
+                    
+                        .planes-container ul {
+                            list-style-type: none;
+                            padding: 0;
+                            margin: 0;
+                        }
+                    
+                        .planes-container li {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            margin-bottom: 10px;
+                            border-bottom: 1px solid #ddd;
+                            padding-bottom: 5px;
+                        }
+                    
+                        .plan-text {
+                            flex-grow: 1;
+                        }
+                    
+                        .planes-container button {
+                            background-color: #4ff8e9;
+                            border: none;
+                            padding: 8px 12px;
+                            font-size: 14px;
+                            cursor: pointer;
+                            border-radius: 5px;
+                            color: black;
+                            font-weight: bold;
+                            transition: all 0.3s ease-in-out;
+                            box-shadow: 0 0 5px #4ff8e9;
+                            min-width: 140px; /* Tamaño fijo para alinear */
+                            text-align: center;
+                        }
+                    
+                        .planes-container button:hover {
+                            background-color: #3dd6c9;
+                            box-shadow: 0 0 15px #4ff8e9;
+                            transform: scale(1.1);
+                        }
+                    
+                        .planes-container button:active {
+                            transform: scale(0.95);
+                        }
+                    
+                        .planes-title {
+                            font-size: 18px;
+                            font-weight: bold;
+                            margin-bottom: 10px;
+                            text-align: center;
+                        }
+                    </style>
+            
+                    <!-- Planes solo de Internet -->
+                        <div class="planes-title">Planes de Internet</div>
+                        <ul>
+                            <li>
+                                <span class="plan-text">20 megas – $50.000</span>
+                                <button onclick="window.open('https://wa.me/573106600313?text=Estoy%20interesado%20en%20este%20plan%20de%2020%20megas')">
+                                    Adquirir
+                                </button>
+                            </li>
+                            <li>
+                                <span class="plan-text">60 megas – $60.000</span>
+                                <button onclick="window.open('https://wa.me/573106600313?text=Estoy%20interesado%20en%20este%20plan%20de%2060%20megas')">
+                                    Adquirir
+                                </button>
+                            </li>
+                            <li>
+                                <span class="plan-text">80 megas – $80.000</span>
+                                <button onclick="window.open('https://wa.me/573106600313?text=Estoy%20interesado%20en%20este%20plan%20de%2080%20megas')">
+                                    Adquirir
+                                </button>
+                            </li>
+                            <li>
+                                <span class="plan-text">100 megas – $100.000</span>
+                                <button onclick="window.open('https://wa.me/573106600313?text=Estoy%20interesado%20en%20este%20plan%20de%20100%20megas')">
+                                    Adquirir
+                                </button>
+                            </li>
+                            <li>
+                                <span class="plan-text">200 megas – $120.000</span>
+                                <button onclick="window.open('https://wa.me/573106600313?text=Estoy%20interesado%20en%20este%20plan%20de%20200%20megas')">
+                                    Adquirir
+                                </button>
+                            </li>
+                            <li>
+                                <span class="plan-text">300 megas – $150.000</span>
+                                <button onclick="window.open('https://wa.me/573106600313?text=Estoy%20interesado%20en%20este%20plan%20de%20300%20megas')">
+                                    Adquirir
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Planes de Internet + TV -->
+                    <div class="planes-wrapper">
+                    <div class="planes-container">
+                        <div class="planes-title">Planes de Internet + TV</div>
+                        <ul>
+                            <li>
+                                <span class="plan-text">15 megas + TV – $56.000</span>
+                                <button onclick="window.open('https://wa.me/573106600313?text=Estoy%20interesado%20en%20este%20plan%20de%2015%20megas%20+%20TV')">
+                                    Adquirir
+                                </button>
+                            </li>
+                            <li>
+                                <span class="plan-text">50 megas + TV – $66.000</span>
+                                <button onclick="window.open('https://wa.me/573106600313?text=Estoy%20interesado%20en%20este%20plan%20de%2050%20megas%20+%20TV')">
+                                    Adquirir
+                                </button>
+                            </li>
+                            <li>
+                                <span class="plan-text">80 megas + TV – $86.000</span>
+                                <button onclick="window.open('https://wa.me/573106600313?text=Estoy%20interesado%20en%20este%20plan%20de%2080%20megas%20+%20TV')">
+                                    Adquirir
+                                </button>
+                            </li>
+                            <li>
+                                <span class="plan-text">100 megas + TV – $111.000</span>
+                                <button onclick="window.open('https://wa.me/573106600313?text=Estoy%20interesado%20en%20este%20plan%20de%20100%20megas%20+%20TV')">
+                                    Adquirir
+                                </button>
+                            </li>
+                            <li>
+                                <span class="plan-text">200 megas + TV – $136.000</span>
+                                <button onclick="window.open('https://wa.me/573106600313?text=Estoy%20interesado%20en%20este%20plan%20de%20200%20megas%20+%20TV')">
+                                    Adquirir
+                                </button>
+                            </li>
+                            <li>
+                                <span class="plan-text">300 megas + TV – $176.000</span>
+                                <button onclick="window.open('https://wa.me/573106600313?text=Estoy%20interesado%20en%20este%20plan%20de%20300%20megas%20+%20TV')">
+                                    Adquirir
+                                </button>
+                            </li>
+                        </ul>
+                    </div>   
+                
+    </section>
+
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <div id="contacto-info" class="hidden contact-grid">
+            <div class="contact-item">
+                <p>Teléfono para llamadas: 3106600300</p>
+                <p>WhatsApp: <a href="https://wa.me/573106600313" target="_blank">+573106600313</a></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="soporte">
+        <h2>Soporte</h2>
+        <div id="soporte-info" class="hidden support-grid">
+            <div class="support-item">
+                <form action=tecnofibra.tlc@gmail.com method="POST">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+    
+                    <label for="telefono">Número de Teléfono-Celular:</label>
+                    <input type="tel" id="telefono" name="telefono" required>
+    
+                    <label for="direccion">Dirección:</label>
+                    <input type="text" id="direccion" name="direccion" required>
+    
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" required></textarea>
+    
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Conectando tu mundo<br>
+        Ofrecemos los mejores servicios de internet con la más alta calidad.</p>
+        <p>Pereira - Risaralda</p>
+        <p>Teléfono para llamadas: 3106600300</p>
+        <p>WhatsApp: <a href="https://wa.me/573106600313" target="_blank">+573106600313</a></p>
+        <footer>
+            <p>&copy; 2025 Tecnofibra S.A.S. Todos los derechos reservados.</p>
+        </footer>
